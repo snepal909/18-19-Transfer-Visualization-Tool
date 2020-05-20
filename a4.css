@@ -1,0 +1,47 @@
+table, th, td {
+  border: 1px solid black;
+  border-collapse: collapse;
+}
+
+div.tooltip {	
+  position: absolute;			
+  text-align: left;							
+  padding: 7px;				
+  font: 12px sans-serif;		
+  background: white;	
+  border: solid;		
+  border-width: 1px;
+  border-radius: 5px;			
+  pointer-events: none;			
+}
+
+#tools {
+  position: absolute;
+  left: 1000px;
+  top: 75px;
+  border: solid;		
+  border-width: 1px;
+  border-radius: 7.5px;
+  padding: 10px;
+}
+
+#leg {
+  position: absolute;
+  left: 1180px;
+  top: 75px;
+  border-radius: 7.5px;		
+  padding: 7px;
+}
+
+#graph {
+  position: absolute;
+  top: 25px;
+}
+
+#writeup {
+  position: absolute;
+  top: 725px;
+  left: 10px;
+  right: 10px;
+  margin-bottom: 5px;
+}

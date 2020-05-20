@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<head>
+  <title>A4: Soccer Team Transfers </title>
+  <script src="d3.js"></script>
+  <script src="jquery-3.5.0.min.js"></script>
+  <script src="https://d3js.org/d3-scale-chromatic.v1.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="a4.css">
+</head>
+
+<body>
+  <svg id="graph"></svg>
+  <div id="legend"><svg id="leg"></svg></div>
+  <div id="tools">
+    Leagues/Other Filters:<br><br>
+    <input type="checkbox" id="German" name="boxes" checked>
+    <label for="German">1 Bundeslia</label><br>
+    <input type="checkbox" id="Italian" name="boxes" checked>
+    <label for="Italian">Serie A</label><br>
+    <input type="checkbox" id="French" name="boxes" checked>
+    <label for="French">Ligue 1</label><br>
+    <input type="checkbox" id="Eng1" name="boxes" checked>
+    <label for="Eng1">Premier League</label><br>
+    <input type="checkbox" id="Spanish" name="boxes" checked>
+    <label for="Spanish">Primera Division</label><br>
+    <input type="checkbox" id="Russ" name="boxes" checked>
+    <label for="Russ">Premier Liga</label><br>
+    <input type="checkbox" id="Portu" name="boxes" checked>
+    <label for="Portu">Liga Nos</label><br>
+    <input type="checkbox" id="Eng2" name="boxes" checked>
+    <label for="Eng2">Championship</label><br>
+    <input type="checkbox" id="Dutch" name="boxes" checked>
+    <label for="Dutch">Eredivisie</label><br><br>    
+    <input type="range" name="minag" id="minag" min="17" max="35" value="17"><br>
+    <label for="minag">Min Age</label><br><br>
+    <input type="range" name="maxag" id="maxag" min="17" max="35" value="35"><br>
+    <label for="maxag">Max Age</label><br><br>
+    <input type="range" name="minf" id="minf" min="0.0" max="120.0" value="0.0"><br>
+    <label for="minf">Min Fee</label><br><br>
+    <input type="range" name="maxf" id="maxf" min="0.0" max="120.0" value="120.0"><br>
+    <label for="maxf">Max Fee</label><br><br>
+    <input type="range" name="size" id="size" min="4.5" max="12.5" value="8.5"><br>
+    <label for="size">Point Size</label><br><br>
+    <input type="range" name="opac" id="opac" min="1" max="7" value="4"><br>
+    <label for="opac">Point Opacity</label><br>
+  </div>
+  <div id="writeup">
+    <h1>Writeup:</h1>
+    <h3>Design Decisions:</h3>
+      I decided to plot age aginst transfer value, because using the categorical data (leagues/teams)
+      on x axis would be difficult since there are so many more ages than leagues. Also, either 
+      a shape encoding or size encoding would be made, and it would be harder to analyze the trend 
+      and correlation of player age and their transfer value. A scatterplot format was used because 
+      the data I was plotting involved two axes with quantative data. This led me to believe that it 
+      would be best to use a position encoding, since I was graphing age against a monetary value,
+      both numerical. Since each league had different players incoming, I wanted to differentiate
+      the leagues so that proper analysis can be done on the players (how much teams in a league 
+      spend, age of players they tend to buy). The best choice for this was a color encoding to 
+      separate leagues (because there was a good amount to categorize, all having numerous players/points).
+      A shape encoding was considered here, but colors were much easier to see than shapes when graphed;
+      Since I wanted the feature of analyzing each league, I used dynamic query filters so that
+      the user could pick the leagues they wanted to analyze. I did this with chekboxes. Originally I was
+      going to do a dropdown for the user to select one league, but this wouldn't allow analysis on multiple
+      leagues at once so I decided the checkbox would be a better strategy. I used tooltips as well because
+      there was more information that the user would be interested in such as name, position, and the team
+      that they player left/joined. It was easier to display with a tooltip than a table, much more elegant 
+      and visually pleasing. This could lead to some problems due to point overlap, so I decided to use sliders
+      to change ranges of axes. This allows users for more simplified control compared to zooming because they 
+      can set exact ranges, and can evaluate whatever they need. This allows for users to analyze a certain part
+      and deal with the overlap issue in one go. There were also sliders for point size and point opacity that
+      were used instead of textboxes or a form. This was done so I could set the range to what I thought was appropriate
+      for proper visibility more simply, while still allowing the user some control in case they have issues with their
+      eyesight. Sliders also are more visually appealing and easier to use than a textbox in my opinion.
+    <h3>Development Process</h3>
+      My process started with finding an interesting dataset and extracting it. Then I looked at the types of data
+      and figured out the relationship/correlation I wanted to show in my data. I decided on fee and age axes, because 
+      age is very important when it comes to player transfers, and can either encourage or deter a team to obtain a player.
+      Then I decided on encodings and after experimenting with shapes, size, colors, and position I thought color/position
+      encodings for a scatterplot would be best. Then came interactions. This was the hardest/most time consuming part, 
+      because when selecting leagues (checkboxes) and manipulating sliders, I had to constantly update the graph. This alongiside 
+      imposing and monitoring restrictions was something I had to make sure my code did. After deciding on everything I created margins
+      and started to code, adjusting and making small tweaks  as I went throughout, experimenting with different combinations and looks.
+      It roughly took about 3-4 days of work (not constant) to complete.<h1></h1>
+  </div>
+  <script src="a4.js"></script>
+</body>
+</html>
+
